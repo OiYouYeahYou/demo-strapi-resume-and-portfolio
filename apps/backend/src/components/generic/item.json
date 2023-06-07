@@ -1,0 +1,41 @@
+{
+	"collectionName": "components_generic_items",
+	"info": {
+		"displayName": "Item",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"sub_title": {
+			"type": "string"
+		},
+		"start": {
+			"type": "date",
+			"required": true
+		},
+		"end": {
+			"type": "date"
+		},
+		"tags": {
+			"type": "relation",
+			"relation": "oneToMany",
+			"target": "api::tag.tag"
+		},
+		"about": {
+			"type": "richtext"
+		},
+		"media": {
+			"type": "media",
+			"multiple": true,
+			"required": false,
+			"allowedTypes": ["images", "videos"]
+		},
+		"notes": {
+			"type": "richtext"
+		}
+	}
+}

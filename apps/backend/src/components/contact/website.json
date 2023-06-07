@@ -1,0 +1,21 @@
+{
+	"collectionName": "components_contact_website",
+	"info": {
+		"displayName": "Website"
+	},
+	"options": {},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"website_full": {
+			"type": "string",
+			"required": true
+		},
+		"website_readable": {
+			"type": "string",
+			"required": true
+		}
+	}
+}

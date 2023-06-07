@@ -1,2 +1,3 @@
 apps/backend/.cache
+apps/backend/dist
 apps/backend/.strapi-updater.json

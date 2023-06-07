@@ -1,0 +1,53 @@
+{
+	"kind": "singleType",
+	"collectionName": "abouts",
+	"info": {
+		"singularName": "about",
+		"pluralName": "abouts",
+		"displayName": "About",
+		"description": ""
+	},
+	"options": {
+		"draftAndPublish": false
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"role": {
+			"type": "string",
+			"required": true
+		},
+		"resume_about": {
+			"type": "text",
+			"required": true
+		},
+		"contact": {
+			"type": "dynamiczone",
+			"components": ["contact.phone", "contact.email", "contact.website"]
+		},
+		"skill_group": {
+			"displayName": "Skills",
+			"type": "component",
+			"repeatable": true,
+			"component": "skill.skills"
+		},
+		"education": {
+			"displayName": "Item",
+			"type": "component",
+			"repeatable": true,
+			"component": "generic.item"
+		},
+		"experience": {
+			"type": "component",
+			"repeatable": true,
+			"component": "generic.item"
+		},
+		"projects": {
+			"type": "component",
+			"repeatable": true,
+			"component": "generic.item"
+		}
+	}
+}

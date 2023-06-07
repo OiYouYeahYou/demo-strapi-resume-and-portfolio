@@ -1,0 +1,18 @@
+{
+	"collectionName": "components_skill_skills",
+	"info": {
+		"displayName": "Skills",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"name": {
+			"type": "string"
+		},
+		"tags": {
+			"type": "relation",
+			"relation": "oneToMany",
+			"target": "api::tag.tag"
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"kind": "collectionType",
+	"collectionName": "tags",
+	"info": {
+		"singularName": "tag",
+		"pluralName": "tags",
+		"displayName": "Tag",
+		"description": ""
+	},
+	"options": {
+		"draftAndPublish": false
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true,
+			"unique": true
+		},
+		"about": {
+			"type": "richtext"
+		},
+		"competence": {
+			"type": "enumeration",
+			"enum": [
+				"Expert",
+				"Proficient",
+				"Advanced",
+				"Competent",
+				"Beginner "
+			]
+		}
+	}
+}
