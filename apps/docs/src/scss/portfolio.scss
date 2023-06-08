@@ -1,0 +1,110 @@
+body {
+	font-family: sans-serif;
+	color: white;
+	background-color: darkgrey;
+}
+
+// App Shell
+
+.app-shell {
+	&__container {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__panel {
+		max-width: 250px;
+		background-color: darkcyan;
+		padding: 20px;
+	}
+
+	&__content {
+		max-width: 750px;
+		padding: 20px;
+		background-color: indigo;
+	}
+}
+
+// Panel
+
+.app-shell__panel ul {
+	padding-inline-start: unset;
+}
+
+.app-shell__panel ul li {
+	list-style: none;
+}
+
+// Content
+
+.project {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+
+	& > .image {
+		width: 50%;
+		text-align: center;
+	}
+
+	& > .image > img {
+		max-width: 100%;
+		max-height: 300px;
+	}
+
+	& > .info {
+		width: 50%;
+		padding: 10px;
+	}
+}
+
+.target:target {
+	animation: background-fade 1s forwards;
+}
+
+@keyframes background-fade {
+	99.9% {
+		background: purple;
+	}
+	100% {
+		background: unset;
+	}
+}
+
+.link-button {
+	display: inline-block;
+	background-color: white;
+	font-size: small;
+	border-radius: 10px;
+	color: black;
+	padding: 10px;
+	margin-inline-end: 3px;
+	margin-bottom: 3px;
+	text-decoration: 3px;
+}
+
+.sub-section {
+	margin-block-end: 5px;
+}
+
+.section__header {
+	margin-block-start: 0;
+	margin-block-end: 0;
+	font-size: larger;
+}
+
+.tags {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	&__card {
+		width: 200px;
+		padding: 10px;
+	}
+
+	&__header {
+		font-size: larger;
+	}
+}

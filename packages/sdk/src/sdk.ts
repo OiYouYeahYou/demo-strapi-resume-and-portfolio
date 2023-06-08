@@ -160,9 +160,8 @@ export class SDK {
 					responseType: 'arraybuffer',
 				})
 				const base64 = Buffer.from(imgRes.data, 'binary').toString(
-					'base64url'
+					'base64'
 				)
-				// data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
 				media.url = `data:${media.mime};base64,${base64}`
 
 				// In other situations, this would be much better if

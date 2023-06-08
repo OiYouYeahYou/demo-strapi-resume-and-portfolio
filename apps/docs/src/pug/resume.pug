@@ -1,0 +1,74 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title #{name} - #{role} - Resume
+		style !{ styles }
+
+	body
+		//---------------------------------------------------------------------
+		//- Header
+		//---------------------------------------------------------------------
+
+		header.header__container
+			.header__item.header__item--half.center
+				h2.no-margin= role
+				h1.no-margin= name
+				p= resume_about
+
+			//- Contact Details
+
+			section
+				h2.no-margin Contact
+				dl.description: each item in contact
+					//- Using the component type to dynamically display content
+					if item.component === 'contact.website'
+						dt #{ item.name }:
+						dd: a(href=item.website_full)= item.website_readable
+					else if item.component === 'contact.email'
+						dt #{ item.name }:
+						dd: a(href='mailto' + item.email)= item.email
+					else if item.component === 'contact.phone'
+						dt #{ item.name }:
+						dd: a(href='tel:' + item.number)= item.number
+
+			//- Skills
+
+			section
+				h2.no-margin Skills
+				dl.description: each item in skill_group
+					dt #{ item.name }:
+					//- Dropping into JS to do some array manipulation
+					dd= item.tags.map((tag) => tag.name).join(', ')
+
+		//---------------------------------------------------------------------
+		//- Main Content
+		//---------------------------------------------------------------------
+
+		//-
+			This mixin uses the generic items used on the backend
+			meaning we have less templating to maintain overall
+		mixin section-item(heading, array)
+			section
+				h2= heading
+				each item in array
+					.split-row
+						div
+							h3.section__header= item.title
+							if item.sub_title
+								h4.section__header - #{ item.sub_title }
+						div #{ yearMonth(item.start) } - #{ item.end ? yearMonth(item.end) : 'Present' }
+					div #{ item.tags.map((tag) => tag.name).join(', ') }
+					if item.about
+						//-
+							Here we have to make sure that we explicitly interpolate.
+							Else, Pug will sanitise the output that our
+							markdown renderer is returning
+						div !{ markdown(item.about) }
+
+		+section-item('Education', education)
+		hr
+		+section-item('Experience', experience)
+		hr
+		+section-item('Projects', projects)

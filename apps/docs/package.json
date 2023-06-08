@@ -1,0 +1,17 @@
+{
+	"name": "resume",
+	"scripts": {
+		"dev": "nodemon -e ts,pug,scss src/index.ts"
+	},
+	"dependencies": {
+		"create-pdf": "*",
+		"markdown-it": "^13.0.1",
+		"pug": "^3.0.2",
+		"sass": "^1.62.1",
+		"sdk": "*"
+	},
+	"devDependencies": {
+		"@types/markdown-it": "^12.2.3",
+		"@types/pug": "^2.0.6"
+	}
+}

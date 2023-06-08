@@ -1,0 +1,89 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title #{ name } - #{ role } - Portfolio
+
+		if styles
+			style !{ styles }
+
+	body
+		.app-shell__container
+			//-----------------------------------------------------------------
+			//- Left Panel
+			//-----------------------------------------------------------------
+
+			.app-shell__panel
+				header
+					h2= role
+					h1= name
+
+				hr
+
+				ul: each item in contact
+					if item.component === 'contact.website'
+						li #[b #{ item.name }:] #[a(href=item.website_full)= item.website_readable]
+					else if item.component === 'contact.email'
+						li #[b #{ item.name }:] #[a(href='mailto' + item.email)= item.email]
+					else if item.component === 'contact.phone'
+						li #[b #{ item.name }:] #[a(href='tel:' + item.number)= item.number]
+
+				hr
+
+				h3 Skills
+				each item in skill_group
+					h4= item.name
+					ul: each tag in item.tags
+						li #[b #{ tag.name }:] #{ tag.competence }
+
+			//-----------------------------------------------------------------
+			//- Main Content
+			//-----------------------------------------------------------------
+
+			.app-shell__content
+				//-----------------------------------------------------------------
+				//- Project
+				//-----------------------------------------------------------------
+
+				section
+					h3 Projects
+					each item in projects
+						//-
+							Two part card. Left is image &
+							right is information about the project
+						.project.target(id=item.id)
+							.image
+								//- If no media exists, we're going to put a cute cat pic there
+								- var media = item?.media[0]
+								if media
+									img(src=media.url, alt=media.alternativeText)
+								else
+									img(src='https://cataas.com/cat/cute', alt='A random cute cat')
+
+							.info
+								.sub-section
+									h4.section__header= item.title
+									if item.sub_title
+										h5.section__header= item.sub_title
+								.sub-section= yearMonth(item.start) + (item.end ? ` - ${yearMonth(item.end)}` : '')
+								.sub-section= item.about
+								if item.tags.length !== 0
+									.sub-section: each tag in item.tags
+										a.link-button(href=`#${tag.id}`) # #{ tag.name }
+
+				hr
+
+				//-----------------------------------------------------------------
+				//- Tags
+				//-----------------------------------------------------------------
+
+				section
+					h3 Tags
+					.tags: each tag in tags
+						.tags__card.target(id=tag.id)
+							h4.tagss__card__header #{ tag.name }: #[small= tag.competence]
+							.sub-section= tag.about
+							if tag.items.length !== 0
+								.project-links: each item in tag.items
+									a.link-button(href=`#${item.id}`) # #{ item.title }

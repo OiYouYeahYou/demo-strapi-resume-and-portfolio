@@ -1,0 +1,53 @@
+body {
+	font-family: sans-serif;
+
+	@media print {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.section {
+	&__header {
+		display: inline;
+		margin-block-start: unset;
+		margin-block-end: unset;
+	}
+}
+
+.header {
+	&__container {
+		display: flex;
+	}
+
+	&__item {
+		padding: 10px;
+
+		&--half {
+			flex-basis: 50%;
+		}
+
+		&--quarter {
+			flex-basis: 25%;
+		}
+	}
+}
+
+.description {
+	> dt {
+		font-weight: bold;
+	}
+}
+
+.split-row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.center {
+	text-align: center;
+}
+
+.no-margin {
+	margin: 0;
+}
