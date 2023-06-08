@@ -1,9 +1,8 @@
 {
 	"private": true,
 	"scripts": {
-		"build": "turbo run build",
-		"dev": "turbo run dev",
-		"lint": "turbo run lint",
+		"build": "dotenv turbo run build",
+		"dev": "dotenv turbo run dev",
 		"format": "prettier --write .prettierrc \"**/*.{ts,tsx,md,json,pug}\""
 	},
 	"devDependencies": {
@@ -19,5 +18,8 @@
 	"workspaces": [
 		"apps/*",
 		"packages/*"
-	]
+	],
+	"dependencies": {
+		"dotenv-cli": "^7.2.1"
+	}
 }
