@@ -1,0 +1,6 @@
+{
+	"name": "sdk-react",
+	"dependencies": {
+		"sdk": "*"
+	}
+}
